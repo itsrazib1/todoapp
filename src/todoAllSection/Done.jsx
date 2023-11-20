@@ -2,34 +2,34 @@ import { useEffect, useState } from "react";
 import TaskDeleteBtn from "./btn/TaskDeleteBtn";
 
 const Done = () => {
-  const [done,setDone] = useState([])
+  const [done, setDone] = useState([]);
 
-
-  useEffect(()=>{
+  useEffect(() => {
     fetch('http://localhost:5000/done')
-    .then(res => res.json())
-    .then(data => setDone(data))
-},[])
-    return (
-        <div>
-            <div className="overflow-x-auto">
-  <table className="table table-zebra">
-    {/* head */}
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Task Name</th>
-      </tr>
-    </thead>
-    <tbody>
-    {
+      .then(res => res.json())
+      .then(data => setDone(data));
+  }, []);
+
+  return (
+    <div className="overflow-x-auto">
+      <div className="text-center py-5 pb-12 font-bold">DONE TASK HERE</div>
+      <table className="table  ">
+        {/* head */}
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Task Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
             done.length > 0 ? (
               done.map((task, index) => (
                 <tr key={task._id}>
                   <th>{index + 1}</th>
                   <td>{task.task_name}</td>
                   <td></td>
-                  <td><TaskDeleteBtn/></td>
+                  <td><TaskDeleteBtn /></td>
                 </tr>
               ))
             ) : (
@@ -38,11 +38,10 @@ const Done = () => {
               </tr>
             )
           }
-    </tbody>
-  </table>
-</div>
-        </div>
-    );
+        </tbody>
+      </table>
+    </div>
+  );
 };
 
 export default Done;

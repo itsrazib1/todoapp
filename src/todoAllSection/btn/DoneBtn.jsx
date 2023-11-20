@@ -5,7 +5,7 @@ const DoneBtn = () =>{
       };
       return(
         <div>
-            <button onClick={handelAddToCart} className="btn">Done</button>
+            <button onClick={handelAddToCart} className="btn btn-success">Done</button>
         </div>
       )
 

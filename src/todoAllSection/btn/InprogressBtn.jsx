@@ -6,7 +6,7 @@ const InprogressBtn = () =>{
       
       return(
         <div>
-            <button onClick={handelAddToCart} className="btn">In Progress</button>
+            <button onClick={handelAddToCart} className="btn btn-info">In Progress</button>
         </div>
       )
 

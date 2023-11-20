@@ -30,11 +30,11 @@ const Todo = () => {
 
   const handleMoveToInProgress = async (taskId) => {
     const taskToMove = todo.find((task) => task._id === taskId);
-  
+
     // Remove the task from the todo list
     const updatedTodo = todo.filter((task) => task._id !== taskId);
     setTodo(updatedTodo);
-  
+
     try {
       // Send a request to move the task to inProgress on the server
       const response = await fetch(`http://localhost:5000/inprogress`, {
@@ -44,7 +44,7 @@ const Todo = () => {
         },
         body: JSON.stringify(taskToMove),
       });
-  
+
       // Check if the request was successful
       if (!response.ok) {
         throw new Error(`Failed to move task to inProgress. Status: ${response.status}`);
@@ -54,10 +54,10 @@ const Todo = () => {
       // If an error occurs, you may want to handle it (e.g., show an error message or revert the state)
     }
   };
-  
 
   return (
     <div className="overflow-x-auto">
+      <div className="text-center py-5 font-bold">TO DO HERE</div>
       <form onSubmit={handleTaskSubmit}>
         <label>
           Task Name:
@@ -73,7 +73,7 @@ const Todo = () => {
         </button>
       </form>
 
-      <table className="table ">
+      <table className="table">
         <thead>
           <tr>
             <th>No</th>

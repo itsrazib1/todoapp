@@ -5,7 +5,7 @@ const TaskDeleteBtn = () =>{
       };
       return(
         <div>
-            <button onClick={handelAddToCart} className="btn">Delete</button>
+            <button onClick={handelAddToCart} className="btn btn-error">Delete</button>
         </div>
       )
 

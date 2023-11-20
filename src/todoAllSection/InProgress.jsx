@@ -2,34 +2,35 @@ import { useEffect, useState } from "react";
 import DoneBtn from "./btn/DoneBtn";
 
 const InProgress = () => {
-  const [inprogress,setInprogress] = useState([])
+  const [inprogress, setInprogress] = useState([]);
 
-
-  useEffect(()=>{
+  useEffect(() => {
     fetch('http://localhost:5000/inprogress')
-    .then(res => res.json())
-    .then(data => setInprogress(data))
-},[])
-    return (
-        <div className="overflow-x-auto">
-  <table className="table table-zebra">
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Task Name</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-    {
+      .then(res => res.json())
+      .then(data => setInprogress(data));
+  }, []);
+
+  return (
+    <div className="overflow-x-auto">
+      <div className="text-center py-5 pb-12 font-bold">In Progress HERE</div>
+      <table className=" table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Task Name</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {
             inprogress.length > 0 ? (
               inprogress.map((task, index) => (
                 <tr key={task._id}>
                   <th>{index + 1}</th>
                   <td>{task.task_name}</td>
                   <td></td>
-                  <td><DoneBtn/></td>
+                  <td className=""><DoneBtn /></td>
                 </tr>
               ))
             ) : (
@@ -38,10 +39,10 @@ const InProgress = () => {
               </tr>
             )
           }
-    </tbody>
-  </table>
-</div>
-    );
+        </tbody>
+      </table>
+    </div>
+  );
 };
 
 export default InProgress;
