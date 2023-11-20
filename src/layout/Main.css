@@ -1,0 +1,18 @@
+.full-body{
+    background-image: url(../../public/thebg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.title-name{
+    font-family: 'Poppins', sans-serif;
+    font-size: xx-large;
+    font-weight: bold;
+}
+.header-underline{
+    height: 2px;
+    background-color: black;
+    width: 30%;
+    margin: auto;
+}
